@@ -1,0 +1,122 @@
+/* 기본 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  color: #f97316; /* 오렌지 색 */
+}
+
+/* 헤더 */
+header {
+  background-color: #f97316;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+header nav ul {
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+header nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* 채용 공고 상세 */
+.job-detail {
+  padding: 20px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.job-header {
+  margin-bottom: 20px;
+}
+
+.job-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.job-header .deadline {
+  font-size: 1rem;
+  color: #888;
+}
+
+/* 채용 정보 */
+.job-info {
+  margin-bottom: 30px;
+}
+
+.job-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #f97316;
+}
+
+.job-info ul {
+  list-style-type: none;
+}
+
+.job-info ul li {
+  margin-bottom: 10px;
+}
+
+.job-info ul li strong {
+  color: #555;
+}
+
+/* 지원 버튼 */
+.apply-btn {
+  text-align: center;
+}
+
+.apply-btn a {
+  padding: 10px 20px;
+  background-color: #f97316;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.apply-btn a:hover {
+  background-color: #e7620b;
+}
+
+/* 푸터 */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
