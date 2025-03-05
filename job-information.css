@@ -1,0 +1,169 @@
+/* 기본 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  color: #f97316; /* 오렌지 색 */
+}
+
+/* 헤더 */
+header {
+  background-color: #f97316;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+header nav ul {
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+header nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* 필터링 섹션 */
+.filters {
+  padding: 10px 20px; /* 필터링 섹션 안쪽 패딩을 줄여서 간격을 더 좁혔습니다. */
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.filters form {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px; /* 필터 항목들 간의 간격을 좁힘 */
+}
+
+.filters label {
+  margin-right: 5px; /* 레이블과 셀렉트 박스 사이의 간격을 좁혔습니다. */
+  font-weight: bold;
+}
+
+.filters select {
+  padding: 6px 12px; /* 셀렉트 박스의 패딩을 줄여서 더 간결하게 만들었습니다. */
+  font-size: 0.9rem; /* 폰트를 조금 더 작은 크기로 설정하여 공간 절약 */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.filters button {
+  padding: 6px 15px; /* 버튼의 패딩을 줄여서 더 간결하게 만들었습니다. */
+  font-size: 0.9rem;
+  background-color: #f97316;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.filters button:hover {
+  background-color: #e7620b;
+}
+
+/* 기업별 채용 정보 */
+.job-information {
+  padding: 20px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.job-information h2 {
+  font-size: 1.8rem;
+  color: #f97316;
+  margin-bottom: 20px;
+}
+
+.company-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.company-card {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.company-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.company-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.company-card a {
+  padding: 10px 15px;
+  background-color: #f97316;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.company-card a:hover {
+  background-color: #e7620b;
+}
+
+.company-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 기업 로고 스타일 */
+.company-logo {
+  width: 80px; /* 로고의 너비를 고정 */
+  height: 80px; /* 로고의 높이를 고정 */
+  object-fit: contain; /* 이미지 비율을 유지하면서 크기에 맞게 조정 */
+  margin-bottom: 15px; /* 로고와 텍스트 사이 간격 */
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* 이미지를 가운데 정렬 */
+}
+
+/* 푸터 */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
