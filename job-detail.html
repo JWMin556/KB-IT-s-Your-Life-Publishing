@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>채용 공고 상세</title>
+    <link rel="stylesheet" href="job-detail.css" />
+  </head>
+  <body>
+    <header>
+      <h1>모같핀코 채용 공고 상세</h1>
+      <nav>
+        <ul>
+          <li><a href="#">홈</a></li>
+          <li><a href="learning-materials.html">학습 자료</a></li>
+          <li><a href="job-information.html">기업 정보</a></li>
+          <li><a href="#">마이페이지</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="job-detail">
+      <div class="job-header">
+        <h2 id="company-name">기업 이름</h2>
+        <!-- 여기서 기업 이름을 표시 -->
+        <p class="deadline">마감일: 2025-03-31</p>
+      </div>
+
+      <div class="job-info">
+        <h3>채용 정보</h3>
+        <ul>
+          <li><strong>업무 내용:</strong> 웹 개발 및 서버 관리</li>
+          <li><strong>요구 사항:</strong> Java, Spring Boot, MySQL 경험</li>
+          <li><strong>경력:</strong> 3년 이상</li>
+          <li><strong>연봉:</strong> 4,000만원 ~ 5,500만원</li>
+        </ul>
+      </div>
+
+      <div class="apply-btn">
+        <a href="#">지원하기</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 모같핀코</p>
+    </footer>
+
+    <script>
+      // URL 파라미터에서 기업 이름 가져오기
+      const urlParams = new URLSearchParams(window.location.search);
+      const companyName = urlParams.get('company');
+
+      // 기업 이름이 존재하면 해당 값을 페이지에 표시
+      if (companyName) {
+        document.getElementById(
+          'company-name'
+        ).textContent = `${companyName} IT 직군 채용`;
+      }
+    </script>
+  </body>
+</html>
