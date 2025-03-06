@@ -3,61 +3,527 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>무료 강의 & 추천 도서</title>
+    <title>마이페이지</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
       body {
         font-family: Arial, sans-serif;
-        margin: 20px;
-        padding: 20px;
-        background-color: #f9f9f9;
+        background-color: #f5f5f5;
       }
       .container {
-        max-width: 600px;
+        display: flex;
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
         background: white;
-        padding: 20px;
-        border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
       }
-      h2 {
-        color: #ff6600;
-        border-bottom: 2px solid #ff6600;
-        padding-bottom: 5px;
+      .sidebar {
+        width: 250px;
+        background: #fff;
+        padding: 20px;
+        border-right: 1px solid #ddd;
       }
-      .list {
+      .profile {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .profile img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(to bottom, #f9a825, #fff);
+      }
+      .menu {
         list-style: none;
         padding: 0;
+        text-align: left;
+        color: gray;
       }
-      .list li {
-        background: #fff3e0;
-        margin: 10px 0;
+      .setting {
+        color: #fd821d;
+      }
+      .menu li {
+        padding: 10px 10px;
+        border-bottom: 1px solid #edb047;
+        cursor: pointer;
+        text-align: left;
+      }
+      .menu li:last-child {
+        border-bottom: none;
+      }
+      .content {
+        flex-grow: 1;
+        padding: 20px;
+      }
+      .tabs {
+        display: flex;
+        border-bottom: 2px solid #ddd;
+        margin-bottom: 15px;
+      }
+
+      .tab-button {
+        flex: 1;
         padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        background: #f9f9f9;
+        border: none;
+        outline: none;
+        font-size: 16px;
+      }
+
+      .tab-button.active {
+        background: #ff6600;
+        color: white;
+        font-weight: bold;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      /* 카드 컨테이너: 3열 레이아웃 */
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3열 */
+        gap: 20px; /* 카드 간격 */
+        padding: 20px;
+      }
+
+      /* 카드 스타일 */
+      .card {
+        position: relative;
+        width: 100%;
+        padding-top: 100%; /* 정방형 비율 유지 */
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      /* 카드 이미지 정방형 비율 유지 */
+      .card-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 50%;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* 카드 제목 */
+      .card-title {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      /* 카드 설명 */
+      .card-description {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.4;
+        margin: 10px 10px 0 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* 최대 2줄까지 표시 */
+        -webkit-box-orient: vertical;
+      }
+
+      .content {
+        overflow-x: hidden;
+      }
+
+      .section {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #fff;
         border-radius: 5px;
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
       }
-      .list a {
+      .section h2 {
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+      .schedule-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .schedule-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+      }
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        border-radius: 20px;
+        transition: 0.4s;
+      }
+      .slider:before {
+        position: absolute;
+        content: '';
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        border-radius: 50%;
+        transition: 0.4s;
+      }
+      input:checked + .slider {
+        background-color: #ff6600;
+      }
+      input:checked + .slider:before {
+        transform: translateX(20px);
+      }
+      .add-schedule {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+      }
+      .add-schedule {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        margin-top: 10px;
+      }
+
+      .add-schedule input {
+        flex: 1;
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      .add-schedule input[type='date'] {
+        max-width: 150px;
+      }
+
+      .add-schedule button {
+        padding: 8px 15px;
+        background-color: #ff6600;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .add-schedule button:hover {
+        background-color: #e65c00;
+      }
+      .delete-btn {
+        background: none;
+        border: none;
+        color: red;
+        font-size: 16px;
+        cursor: pointer;
+        margin-left: 10px;
+        transition: 0.2s;
+      }
+
+      .delete-btn:hover {
+        color: darkred;
+      }
+      .post-list {
+        list-style: none;
+        padding: 0;
+      }
+      .post-item {
+        display: flex;
+        gap: 20px;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      .post-index {
+        width: 30px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .post-title {
+        flex: 1;
         text-decoration: none;
         color: #333;
-        font-weight: bold;
+      }
+      .post-date {
+        color: #666;
       }
     </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const scheduleGrid = document.querySelector('.schedule-grid');
+        const addButton = document.getElementById('add-btn');
+
+        // 삭제 기능 추가
+        scheduleGrid.addEventListener('click', function (e) {
+          if (e.target.classList.contains('delete-btn')) {
+            e.target.parentElement.remove(); // 해당 일정 삭제
+          }
+        });
+
+        // 일정 추가 기능
+        addButton.addEventListener('click', function () {
+          const companyInput = document.querySelector(
+            ".add-schedule input[type='text']"
+          );
+          const dateInput = document.querySelector(
+            ".add-schedule input[type='date']"
+          );
+
+          if (companyInput.value && dateInput.value) {
+            const newItem = document.createElement('div');
+            newItem.classList.add('schedule-item');
+            newItem.innerHTML = `
+                    <span>${companyInput.value} - ${dateInput.value}</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                    </label>
+                    <button class="delete-btn">❌</button>
+                `;
+            scheduleGrid.appendChild(newItem);
+
+            // 입력 필드 초기화
+            companyInput.value = '';
+            dateInput.value = '';
+          } else {
+            alert('회사명과 날짜를 입력하세요!');
+          }
+        });
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach((button, index) => {
+          button.addEventListener('click', () => {
+            tabContents.forEach((content) =>
+              content.classList.remove('active')
+            );
+            tabButtons.forEach((btn) => btn.classList.remove('active'));
+            tabContents[index].classList.add('active');
+            button.classList.add('active');
+          });
+        });
+
+        // 기본으로 첫 번째 탭 활성화
+        tabButtons[0].classList.add('active');
+        tabContents[0].classList.add('active');
+      });
+    </script>
   </head>
   <body>
     <div class="container">
-      <h2>📚 무료 강의 & 추천 도서</h2>
+      <aside class="sidebar">
+        <br /><br />
+        <div class="profile">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhNJEXqIaNHfAlHrN588FXk4quCwsg0mz19g&s"
+            alt="프로필 이미지"
+          />
+          <p>최화진</p>
+        </div>
+        <ul class="menu">
+          <div class="setting"><li>⚙ 설정</li></div>
+          <li>회원정보 수정</li>
+          <li>회원정보 수정</li>
+          <li>회원정보 수정</li>
+          <li>로그아웃</li>
+        </ul>
+      </aside>
+      <main class="content">
+        <div class="section">
+          <h2>⭐️ 즐겨찾기</h2>
 
-      <h3>🎓 무료 강의</h3>
-      <ul class="list">
-        <li><a href="#">금융권 IT 기본 개념 강의</a></li>
-        <li><a href="#">SQL 기초 및 실무 강의</a></li>
-        <li><a href="#">네트워크 기초 이론 강의</a></li>
-      </ul>
+          <!-- 탭 버튼 -->
+          <div class="tabs">
+            <button class="tab-button active">내가 찜한 채용공고</button>
+            <button class="tab-button">내가 찜한 취업 자료</button>
+          </div>
 
-      <h3>📖 추천 도서</h3>
-      <ul class="list">
-        <li><a href="#">금융 IT와 핀테크 개론</a></li>
-        <li><a href="#">코딩 테스트 대비 알고리즘 책</a></li>
-        <li><a href="#">정보보안과 금융권 시스템</a></li>
-      </ul>
+          <!-- 찜한 채용공고 -->
+          <div class="tab-content active">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-image">
+                  <br />
+                  <img
+                    src="data:image/png;base64,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"
+                    alt="기업 로고"
+                  />
+                  <br />
+                </div>
+                <p class="card-title">삼성전자 소프트웨어 엔지니어</p>
+                <p class="card-description">
+                  삼성전자에서 혁신적인 소프트웨어를 개발하며 성장할 기회를
+                  제공합니다.
+                </p>
+                <br />
+              </div>
+              <div class="card">
+                <div class="card-image">
+                  <br />
+                  <img
+                    src="data:image/png;base64,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"
+                    alt="기업 로고"
+                  />
+                  <br />
+                </div>
+                <p class="card-title">네이버 백엔드 개발자</p>
+                <p class="card-description">
+                  네이버의 대규모 트래픽을 처리하는 백엔드 시스템을 개발하는
+                  기회를 제공합니다.
+                </p>
+                <br />
+              </div>
+              <div class="card">
+                <div class="card-image">
+                  <img
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASsAAACoCAMAAACPKThEAAABX1BMVEX/3ADdmyb..."
+                    alt="기업 로고"
+                  />
+                </div>
+                <hr class="card-divider" />
+                <div class="card-content">
+                  <p class="card-title">카카오 백엔드 개발자</p>
+                  <p class="card-description">
+                    카카오는 백엔드 시스템의 성능을 최적화하고, 안정적인
+                    서비스를 제공합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 찜한 취업 자료 -->
+          <div class="tab-content">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-image">
+                  <img
+                    src="https://via.placeholder.com/150"
+                    alt="자료 대표사진"
+                  />
+                </div>
+                <p class="card-title">삼성 SW 역량 테스트 기출문제</p>
+              </div>
+              <div class="card">
+                <div class="card-image">
+                  <img
+                    src="https://via.placeholder.com/150"
+                    alt="자료 대표사진"
+                  />
+                </div>
+                <p class="card-title">네이버 코딩 테스트 모의 기출문제</p>
+              </div>
+              <div class="card">
+                <div class="card-image">
+                  <img
+                    src="https://via.placeholder.com/150"
+                    alt="자료 대표사진"
+                  />
+                </div>
+                <p class="card-title">카카오 기술 면접 대비 자료</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>📝 내가 쓴 글 모아보기</h2>
+          <ul class="post-list">
+            <li class="post-item">
+              <span class="post-index">1</span>
+              <a href="#" class="post-title">첫 번째 게시글 제목</a>
+              <span class="post-date">2025-03-06</span>
+            </li>
+            <li class="post-item">
+              <span class="post-index">2</span>
+              <a href="#" class="post-title">두 번째 게시글 제목</a>
+              <span class="post-date">2025-03-05</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>📆 면접 일정 체크</h2>
+          <div class="schedule-grid">
+            <div class="schedule-item">
+              <span>신한은행 | IT 면접 - 3월 10일</span>
+              <label class="toggle-switch">
+                <input type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+              <button class="delete-btn">✖️</button>
+            </div>
+            <div class="schedule-item">
+              <span>국민은행 | 데이터 엔지니어 - 3월 15일</span>
+              <label class="toggle-switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+              <button class="delete-btn">✖️</button>
+            </div>
+            <div class="schedule-item">
+              <span>우리은행 | 개발 직군 - 3월 20일</span>
+              <label class="toggle-switch">
+                <input type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+              <button class="delete-btn"></button>
+            </div>
+          </div>
+          <div class="add-schedule">
+            <input type="text" placeholder="회사명" />
+            <input type="text" placeholder="직군" />
+            <input type="date" />
+            <button id="add-btn">일정 추가</button>
+          </div>
+        </div>
+      </main>
     </div>
   </body>
 </html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>커뮤니티</title>
+        <link rel="stylesheet" href="communityStyles.css" />
+        <script defer src="community.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>금융권 IT 취업 준비 플랫폼</h1>
+            <nav>
+                <ul>
+                    <li><a href="jobs.html">채용 정보</a></li>
+                    <li><a href="study.html">학습 자료 및 기출</a></li>
+                    <li><a href="community.html" class="active">커뮤니티</a></li>
+                    <li><a href="mypage.html">마이페이지</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="community-container">
+                <div class="top-container">
+                    <h2>커뮤니티</h2>
+                    <div class="search-container">
+                        <input type="text" class="search" placeholder="제목, 작성자 검색" />
+                        <button class="search-btn">검색</button>
+                    </div>
+                </div>
+
+                <!-- <div class="tab-container">
+                    <button class="tab selected" data-category="all">전체</button>
+                    <button class="tab" data-category="notice">공지</button>
+                    <button class="tab" data-category="question">질문</button>
+                    <button class="tab" data-category="free">자유</button>
+                </div> -->
+
+                <div class="table-container">
+                    <div class="category-container">
+                        <div class="blank-box"></div>
+                        <div class="category-title">제목</div>
+                        <div class="category-writer">작성자</div>
+                        <div class="category-date">작성일</div>
+                        <div class="category-view">조회수</div>
+                    </div>
+                    <div class="tuple-container">
+                        <div class="post-row" data-category="notice">
+                            <div class="blank-box"></div>
+                            <div class="post-title">🚀 사이트 오픈 안내</div>
+                            <div class="post-writer">관리자</div>
+                            <div class="post-date">2025-03-05</div>
+                            <div class="post-view">123</div>
+                        </div>
+                        <div class="post-row" data-category="question">
+                            <div class="blank-box"></div>
+                            <div class="post-title">Spring Security를 활용한 금융권 OAuth2 인증 구현 방법</div>
+                            <div class="post-writer">홍길동</div>
+                            <div class="post-date">2025-03-04</div>
+                            <div class="post-view">98</div>
+                        </div>
+                        <div class="post-row" data-category="free">
+                            <div class="blank-box"></div>
+                            <div class="post-title">오늘 코딩테스트 망했어요...</div>
+                            <div class="post-writer">김철수</div>
+                            <div class="post-date">2025-03-03</div>
+                            <div class="post-view">76</div>
+                        </div>
+                        <div class="post-row" data-category="question">
+                            <div class="blank-box"></div>
+                            <div class="post-title">금융 데이터 처리 시 트랜잭션 관리는 어떻게 해야 하나요?</div>
+                            <div class="post-writer">이영희</div>
+                            <div class="post-date">2025-03-02</div>
+                            <div class="post-view">85</div>
+                        </div>
+                        <div class="post-row" data-category="free">
+                            <div class="blank-box"></div>
+                            <div class="post-title">오늘 날씨 너무 좋네요 ☀️</div>
+                            <div class="post-writer">박민수</div>
+                            <div class="post-date">2025-03-01</div>
+                            <div class="post-view">67</div>
+                        </div>
+                        <div class="post-row" data-category="notice">
+                            <div class="blank-box"></div>
+                            <div class="post-title">⚠️ 서버 점검 예정 안내</div>
+                            <div class="post-writer">관리자</div>
+                            <div class="post-date">2025-02-29</div>
+                            <div class="post-view">200</div>
+                        </div>
+                        <div class="post-row" data-category="question">
+                            <div class="blank-box"></div>
+                            <div class="post-title">전자금융거래법에 맞는 로그 저장 방식은?</div>
+                            <div class="post-writer">최지훈</div>
+                            <div class="post-date">2025-02-28</div>
+                            <div class="post-view">120</div>
+                        </div>
+                        <div class="post-row" data-category="free">
+                            <div class="blank-box"></div>
+                            <div class="post-title">새로운 키보드 샀어요! ⌨️</div>
+                            <div class="post-writer">정수진</div>
+                            <div class="post-date">2025-02-27</div>
+                            <div class="post-view">92</div>
+                        </div>
+                        <div class="post-row" data-category="question">
+                            <div class="blank-box"></div>
+                            <div class="post-title">금융권에서 Kafka를 활용한 실시간 데이터 처리 방법</div>
+                            <div class="post-writer">오세훈</div>
+                            <div class="post-date">2025-02-26</div>
+                            <div class="post-view">110</div>
+                        </div>
+                        <div class="post-row" data-category="free">
+                            <div class="blank-box"></div>
+                            <div class="post-title">VSCode 테마 추천해주세요!</div>
+                            <div class="post-writer">김민지</div>
+                            <div class="post-date">2025-02-25</div>
+                            <div class="post-view">78</div>
+                        </div>
+                        <div class="post-row" data-category="question">
+                            <div class="blank-box"></div>
+                            <div class="post-title">금융권 AI 챗봇 개발 시 고려해야 할 요소는?</div>
+                            <div class="post-writer">조윤호</div>
+                            <div class="post-date">2025-02-24</div>
+                            <div class="post-view">132</div>
+                        </div>
+                        <div class="post-row" data-category="question">
+                            <div class="blank-box"></div>
+                            <div class="post-title">은행권 모바일 앱 개발 시 보안 고려 사항</div>
+                            <div class="post-writer">이소연</div>
+                            <div class="post-date">2025-02-23</div>
+                            <div class="post-view">88</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagination-container">
+                    <button class="pagination-arrow left">&lt;</button>
+                    <button class="pagination-number active">1</button>
+                    <button class="pagination-number">2</button>
+                    <button class="pagination-number">3</button>
+                    <button class="pagination-arrow right">&gt;</button>
+                </div>
+
+                <button class="write-btn">글쓰기</button>
+            </section>
+        </main>
+    </body>
+</html>
