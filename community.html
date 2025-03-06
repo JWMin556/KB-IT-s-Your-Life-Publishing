@@ -5,19 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>커뮤니티</title>
         <link rel="stylesheet" href="communityStyles.css" />
-        <script defer src="community.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     </head>
     <body>
         <header>
-            <h1>금융권 IT 취업 준비 플랫폼</h1>
-            <nav>
-                <ul>
-                    <li><a href="jobs.html">채용 정보</a></li>
-                    <li><a href="study.html">학습 자료 및 기출</a></li>
-                    <li><a href="community.html" class="active">커뮤니티</a></li>
-                    <li><a href="mypage.html">마이페이지</a></li>
-                </ul>
-            </nav>
+            <div class="header-container">
+                <h1><a href="main.html">금융권 IT 취업 준비 플랫폼</a></h1>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="job-information.html"><i class="fas fa-briefcase"></i> 채용 정보</a>
+                        </li>
+                        <li>
+                            <a href="learning-materials.html"><i class="fas fa-book"></i> 학습 자료 및 기출</a>
+                        </li>
+                        <li>
+                            <a href="community.html"><i class="fas fa-comments"></i> 커뮤니티</a>
+                        </li>
+                        <li>
+                            <a href="mypage.html"><i class="fas fa-user"></i> 마이페이지</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </header>
 
         <main>
@@ -29,13 +39,6 @@
                         <button class="search-btn">검색</button>
                     </div>
                 </div>
-
-                <!-- <div class="tab-container">
-                    <button class="tab selected" data-category="all">전체</button>
-                    <button class="tab" data-category="notice">공지</button>
-                    <button class="tab" data-category="question">질문</button>
-                    <button class="tab" data-category="free">자유</button>
-                </div> -->
 
                 <div class="table-container">
                     <div class="category-container">
@@ -141,8 +144,14 @@
                     <button class="pagination-arrow right">&gt;</button>
                 </div>
 
-                <button class="write-btn">글쓰기</button>
+                <!-- <button class="write-btn">글쓰기</button> -->
             </section>
         </main>
+
+        <footer>
+            <div class="footer-container">
+                <p>&copy; 2025 금융권 IT 취업 준비 플랫폼 | 2025 모같핀코</p>
+            </div>
+        </footer>
     </body>
 </html>

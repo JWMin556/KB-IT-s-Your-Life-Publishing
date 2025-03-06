@@ -1,133 +1,160 @@
-/* 기본 스타일 */
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* 네비게이션 바를 화면 상단에 고정 */
-  height: 100vh;
-  padding-top: 60px; /* 네비게이션 바 아래에 콘텐츠가 위치하도록 여백 추가 */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 최소 높이를 100%로 설정 */
 }
 
-/* 고정 네비게이션 바 */
-.navbar {
-  position: fixed; /* 스크롤 시에도 네비게이션이 화면 상단에 고정 */
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #ff6600;
-  padding: 15px 0;
-  z-index: 10;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Header 스타일 */
+header {
+    background-color: #ff6f00;
+    color: #fff;
+    padding: 20px 0;
 }
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.navbar ul li {
-  display: inline;
-  margin-right: 20px;
+header h1 {
+    font-size: 2rem;
+    margin-left: 20px;
 }
 
-.navbar ul li a {
-  text-decoration: none;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: bold;
+header h1 a {
+    color: #fff;
+    text-decoration: none;
 }
 
-.navbar ul li a:hover {
-  text-decoration: underline;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    color: #f39c12;
 }
 
 /* 콘텐츠 영역 */
 .container {
-  max-width: 1200px;
-  width: 100%;
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.innerContainer {
+    max-width: 1200px;
+    width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 80px; /* 네비게이션 바 아래에 콘텐츠가 위치하도록 여백 추가 */
+    flex-grow: 1; /* 콘텐츠 영역이 남은 공간을 차지하도록 설정 */
 }
 
 /* 제목 스타일 */
 h2 {
-  text-align: center;
-  color: #ff6600;
-  border-bottom: 3px solid #ff6600;
-  padding-bottom: 12px;
-  font-size: 2rem;
+    text-align: center;
+    color: #ff6600;
+    border-bottom: 3px solid #ff6600;
+    padding-bottom: 12px;
+    font-size: 2rem;
 }
 
 h3 {
-  margin-top: 30px;
-  color: #333;
-  font-size: 1.6rem;
+    margin-top: 30px;
+    color: #333;
+    font-size: 1.6rem;
 }
 
 /* 수평 스크롤 영역 */
 .horizontal-scroll {
-  overflow-x: auto; /* 수평 스크롤 활성화 */
-  padding: 10px 0;
-  margin: 10px 0;
+    overflow-x: auto; /* 수평 스크롤 활성화 */
+    padding: 10px 0;
+    margin: 10px 0;
 }
 
 .list {
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    list-style: none;
 }
 
 /* 목록 항목 스타일 */
 .list li {
-  display: flex;
-  flex-direction: column; /* 수직 구조로 배치 */
-  align-items: center; /* 이미지와 텍스트 수평 중앙 정렬 */
-  background: #fff3e0;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  min-width: 200px; /* 최소 너비 지정 */
-  flex-shrink: 0; /* 카드 크기 고정 */
-  text-align: center;
+    display: flex;
+    flex-direction: column; /* 수직 구조로 배치 */
+    align-items: center; /* 이미지와 텍스트 수평 중앙 정렬 */
+    background: #fff3e0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-width: 200px; /* 최소 너비 지정 */
+    flex-shrink: 0; /* 카드 크기 고정 */
+    text-align: center;
 }
 
 .list li:hover {
-  background: #ffcc80;
-  transform: translateY(-5px);
+    background: #ffcc80;
+    transform: translateY(-5px);
 }
 
 .list a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-top: 10px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 10px;
 }
 
 .list a:hover {
-  color: #ff6600;
+    color: #ff6600;
 }
 
 /* 이미지 스타일 */
 .item-img {
-  width: 150px; /* 이미지 크기 고정 */
-  height: 150px; /* 이미지 크기 고정 */
-  object-fit: contain; /* 이미지가 잘리지 않고 비율을 유지하면서 크기 조정 */
-  border-radius: 8px;
-  margin-bottom: 10px;
+    width: 150px; /* 이미지 크기 고정 */
+    height: 150px; /* 이미지 크기 고정 */
+    object-fit: contain; /* 이미지가 잘리지 않고 비율을 유지하면서 크기 조정 */
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 /* 섹션 구분선 */
 .section-divider {
-  margin: 30px 0;
-  border-top: 3px solid #ff6600;
+    margin: 30px 0;
+    border-top: 3px solid #ff6600;
+}
+
+/* Footer 스타일 */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* 푸터가 화면 하단에 위치하도록 설정 */
 }
