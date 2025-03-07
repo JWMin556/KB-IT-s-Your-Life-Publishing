@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>마이페이지</title>
-        <link rel="stylesheet" href="mypage.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const scheduleGrid = document.querySelector('.schedule-grid');
-                const addButton = document.getElementById('add-btn');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="mypage.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const scheduleGrid = document.querySelector('.schedule-grid');
+        const addButton = document.getElementById('add-btn');
 
-                // 삭제 기능 추가
-                scheduleGrid.addEventListener('click', function (e) {
-                    if (e.target.classList.contains('delete-btn')) {
-                        e.target.parentElement.remove(); // 해당 일정 삭제
-                    }
-                });
+        // 삭제 기능 추가
+        scheduleGrid.addEventListener('click', function (e) {
+          if (e.target.classList.contains('delete-btn')) {
+            e.target.parentElement.remove(); // 해당 일정 삭제
+          }
+        });
 
-                // 일정 추가 기능
-                addButton.addEventListener('click', function () {
-                    const companyInput = document.querySelector(".add-schedule input[type='text']");
-                    const dateInput = document.querySelector(".add-schedule input[type='date']");
+        // 일정 추가 기능
+        addButton.addEventListener('click', function () {
+          const companyInput = document.querySelector(
+            ".add-schedule input[type='text']"
+          );
+          const dateInput = document.querySelector(
+            ".add-schedule input[type='date']"
+          );
 
-                    if (companyInput.value && dateInput.value) {
-                        const newItem = document.createElement('div');
-                        newItem.classList.add('schedule-item');
-                        newItem.innerHTML = `
+          if (companyInput.value && dateInput.value) {
+            const newItem = document.createElement('div');
+            newItem.classList.add('schedule-item');
+            newItem.innerHTML = `
                     <span>${companyInput.value} - ${dateInput.value}</span>
                     <label class="toggle-switch">
                         <input type="checkbox" />
@@ -34,210 +41,247 @@
                     </label>
                     <button class="delete-btn">❌</button>
                 `;
-                        scheduleGrid.appendChild(newItem);
+            scheduleGrid.appendChild(newItem);
 
-                        // 입력 필드 초기화
-                        companyInput.value = '';
-                        dateInput.value = '';
-                    } else {
-                        alert('회사명과 날짜를 입력하세요!');
-                    }
-                });
-            });
+            // 입력 필드 초기화
+            companyInput.value = '';
+            dateInput.value = '';
+          } else {
+            alert('회사명과 날짜를 입력하세요!');
+          }
+        });
+      });
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const tabButtons = document.querySelectorAll('.tab-button');
-                const tabContents = document.querySelectorAll('.tab-content');
+      document.addEventListener('DOMContentLoaded', function () {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
 
-                tabButtons.forEach((button, index) => {
-                    button.addEventListener('click', () => {
-                        tabContents.forEach((content) => content.classList.remove('active'));
-                        tabButtons.forEach((btn) => btn.classList.remove('active'));
-                        tabContents[index].classList.add('active');
-                        button.classList.add('active');
-                    });
-                });
+        tabButtons.forEach((button, index) => {
+          button.addEventListener('click', () => {
+            tabContents.forEach((content) =>
+              content.classList.remove('active')
+            );
+            tabButtons.forEach((btn) => btn.classList.remove('active'));
+            tabContents[index].classList.add('active');
+            button.classList.add('active');
+          });
+        });
 
-                // 기본으로 첫 번째 탭 활성화
-                tabButtons[0].classList.add('active');
-                tabContents[0].classList.add('active');
-            });
-        </script>
-    </head>
-    <body>
-        <header>
-            <div class="header-container">
-                <h1><a href="main.html">금융권 IT 취업 준비 플랫폼</a></h1>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="job-information.html"><i class="fas fa-briefcase"></i> 채용 정보</a>
-                        </li>
-                        <li>
-                            <a href="learning-materials.html"><i class="fas fa-book"></i> 학습 자료 및 기출</a>
-                        </li>
-                        <li>
-                            <a href="community.html"><i class="fas fa-comments"></i> 커뮤니티</a>
-                        </li>
-                        <li>
-                            <a href="mypage.html"><i class="fas fa-user"></i> 마이페이지</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        <div class="container">
-            <aside class="sidebar">
-                <br /><br />
-                <div class="profile">
-                    <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhNJEXqIaNHfAlHrN588FXk4quCwsg0mz19g&s"
-                        alt="프로필 이미지"
-                    />
-                    <p>최화진</p>
-                </div>
-                <ul class="menu">
-                    <div class="setting"><li>⚙ 설정</li></div>
-                    <li>회원정보 수정</li>
-                    <li>회원정보 수정</li>
-                    <li>회원정보 수정</li>
-                    <li>로그아웃</li>
-                </ul>
-            </aside>
-            <main class="content">
-                <div class="section">
-                    <h2>⭐️ 즐겨찾기</h2>
-
-                    <!-- 탭 버튼 -->
-                    <div class="tabs">
-                        <button class="tab-button active">내가 찜한 채용공고</button>
-                        <button class="tab-button">내가 찜한 취업 자료</button>
-                    </div>
-
-                    <!-- 찜한 채용공고 -->
-                    <div class="tab-content active">
-                        <div class="card-container">
-                            <div class="card">
-                                <div class="card-image">
-                                    <br />
-                                    <img
-                                        src="data:image/png;base64,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"
-                                        alt="기업 로고"
-                                    />
-                                    <br />
-                                </div>
-                                <p class="card-title">삼성전자 소프트웨어 엔지니어</p>
-                                <p class="card-description">
-                                    삼성전자에서 혁신적인 소프트웨어를 개발하며 성장할 기회를 제공합니다.
-                                </p>
-                                <br />
-                            </div>
-                            <div class="card">
-                                <div class="card-image">
-                                    <br />
-                                    <img
-                                        src="data:image/png;base64,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"
-                                        alt="기업 로고"
-                                    />
-                                    <br />
-                                </div>
-                                <p class="card-title">네이버 백엔드 개발자</p>
-                                <p class="card-description">
-                                    네이버의 대규모 트래픽을 처리하는 백엔드 시스템을 개발하는 기회를 제공합니다.
-                                </p>
-                                <br />
-                            </div>
-                            <div class="card">
-                                <div class="card-image">
-                                    <img
-                                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASsAAACoCAMAAACPKThEAAABX1BMVEX/3ADdmyb..."
-                                        alt="기업 로고"
-                                    />
-                                </div>
-                                <hr class="card-divider" />
-                                <div class="card-content">
-                                    <p class="card-title">카카오 백엔드 개발자</p>
-                                    <p class="card-description">
-                                        카카오는 백엔드 시스템의 성능을 최적화하고, 안정적인 서비스를 제공합니다.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 찜한 취업 자료 -->
-                    <div class="tab-content">
-                        <div class="card-container">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="https://via.placeholder.com/150" alt="자료 대표사진" />
-                                </div>
-                                <p class="card-title">삼성 SW 역량 테스트 기출문제</p>
-                            </div>
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="https://via.placeholder.com/150" alt="자료 대표사진" />
-                                </div>
-                                <p class="card-title">네이버 코딩 테스트 모의 기출문제</p>
-                            </div>
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="https://via.placeholder.com/150" alt="자료 대표사진" />
-                                </div>
-                                <p class="card-title">카카오 기술 면접 대비 자료</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2>📝 내가 쓴 글 모아보기</h2>
-                    <ul class="post-list">
-                        <li class="post-item">
-                            <span class="post-index">1</span>
-                            <a href="#" class="post-title">첫 번째 게시글 제목</a>
-                            <span class="post-date">2025-03-06</span>
-                        </li>
-                        <li class="post-item">
-                            <span class="post-index">2</span>
-                            <a href="#" class="post-title">두 번째 게시글 제목</a>
-                            <span class="post-date">2025-03-05</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="section">
-                    <h2>📆 면접 일정 체크</h2>
-                    <div class="schedule-grid">
-                        <div class="schedule-item">
-                            <span>신한은행 | IT 면접 - 3월 10일</span>
-                            <label class="toggle-switch">
-                                <input type="checkbox" checked />
-                                <span class="slider"></span>
-                            </label>
-                            <button class="delete-btn">✖️</button>
-                        </div>
-                        <div class="schedule-item">
-                            <span>국민은행 | 데이터 엔지니어 - 3월 15일</span>
-                            <label class="toggle-switch">
-                                <input type="checkbox" />
-                                <span class="slider"></span>
-                            </label>
-                            <button class="delete-btn">✖️</button>
-                        </div>
-                    </div>
-                    <div class="add-schedule">
-                        <input type="text" placeholder="회사명" />
-                        <input type="text" placeholder="직군" />
-                        <input type="date" />
-                        <button id="add-btn">일정 추가</button>
-                    </div>
-                </div>
-            </main>
+        // 기본으로 첫 번째 탭 활성화
+        tabButtons[0].classList.add('active');
+        tabContents[0].classList.add('active');
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h1><a href="main.html">금융권 IT 취업 준비 플랫폼</a></h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="job-information.html"
+                ><i class="fas fa-briefcase"></i> 채용 정보</a
+              >
+            </li>
+            <li>
+              <a href="learning-materials.html"
+                ><i class="fas fa-book"></i> 학습 자료 및 기출</a
+              >
+            </li>
+            <li>
+              <a href="community.html"
+                ><i class="fas fa-comments"></i> 커뮤니티</a
+              >
+            </li>
+            <li>
+              <a href="mypage.html"><i class="fas fa-user"></i> 마이페이지</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <aside class="sidebar">
+        <br /><br />
+        <div class="profile">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhNJEXqIaNHfAlHrN588FXk4quCwsg0mz19g&s"
+            alt="프로필 이미지"
+          />
+          <p>최화진</p>
         </div>
+        <ul class="menu">
+          <div class="setting"><li>⚙ 설정</li></div>
+          <li>회원정보 수정</li>
+          <li>환경설정</li>
+          <li>로그아웃</li>
+        </ul>
+      </aside>
+      <main class="content">
+        <main class="section">
+          <h2>⭐️ 즐겨찾기</h2>
 
-        <footer>
-            <p>&copy; 2025 금융권 IT 취업 준비 플랫폼 | 2025 모같핀코</p>
-        </footer>
-    </body>
+          <!-- 탭 버튼 -->
+          <div class="tabs">
+            <button class="tab-button active">내가 찜한 채용공고</button>
+            <button class="tab-button">내가 찜한 취업 자료</button>
+          </div>
+
+          <!-- 찜한 채용공고 -->
+          <div class="tab-content active">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-image">
+                  <br />
+                  <img
+                    src="data:image/png;base64,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"
+                    alt="기업 로고"
+                  />
+                  <br />
+                </div>
+                <p class="card-title">삼성전자 소프트웨어 엔지니어</p>
+                <p class="card-description">
+                  삼성전자에서 혁신적인 소프트웨어를 개발하며 성장할 기회를
+                  제공합니다.
+                </p>
+                <br />
+              </div>
+              <div class="card">
+                <div class="card-image">
+                  <br />
+                  <img
+                    src="data:image/png;base64,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"
+                    alt="기업 로고"
+                  />
+                  <br />
+                </div>
+                <p class="card-title">네이버 백엔드 개발자</p>
+                <p class="card-description">
+                  네이버의 대규모 트래픽을 처리하는 백엔드 시스템을 개발하는
+                  기회를 제공합니다.
+                </p>
+                <br />
+              </div>
+              <div class="card">
+                <div class="card-image">
+                  <img
+                    src="data:image/png;base64,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"
+                    alt="기업 로고"
+                  />
+                </div>
+                <div class="card-content">
+                  <p class="card-title">카카오 백엔드 개발자</p>
+                  <p class="card-description">
+                    카카오는 백엔드 시스템의 성능을 최적화하고, 안정적인
+                    서비스를 제공합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 찜한 취업 자료 -->
+          <div class="tab-content">
+            <div class="card-container">
+              <div class="card">
+                <div class="card-image">
+                  <br />
+                  <img
+                    src="data:image/jpeg;base64,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"
+                    alt="프로그래머스 이미지"
+                  />
+                  <br />
+                </div>
+                <p class="card-title">프로그래머스 코테 문제</p>
+                <p class="card-description">
+                  코딩테스트 대비를 위한 알고리즘 문제
+                </p>
+                <br />
+              </div>
+              <div class="card">
+                <div class="card-image">
+                  <br />
+                  <img
+                    src="data:image/png;base64,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"
+                    alt="기업 로고"
+                  />
+                  <br />
+                </div>
+                <p class="card-title">삼성 sw역량테스트 기출</p>
+                <p class="card-description">
+                  삼성 sw 역량테스트에 출제된 기출문제집입니다.
+                </p>
+                <br />
+              </div>
+              <div class="card">
+                <div class="card-image">
+                  <img
+                    src="data:image/png;base64,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"
+                    alt="기업 로고"
+                  />
+                </div>
+                <div class="card-content">
+                  <p class="card-title">카카오 코딩테스트 기출문제</p>
+                  <p class="card-description">
+                    카카오는 코딩테스트 기출문제 및 풀이 정리한 모음집입니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>📝 내가 쓴 글 모아보기</h2>
+            <ul class="post-list">
+              <li class="post-item">
+                <span class="post-index">1</span>
+                <a href="#" class="post-title">
+                  IT's Your Life 6기 수료 후기 ★★★★★
+                </a>
+                <span class="post-date">2025-09-06</span>
+              </li>
+              <li class="post-item">
+                <span class="post-index">2</span>
+                <a href="#" class="post-title">IT's Your Life 6기 합격 !!!</a>
+                <span class="post-date">2025-02-20</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>📆 면접 일정 체크</h2>
+            <div class="schedule-grid">
+              <div class="schedule-item">
+                <span>신한은행 | IT 면접 - 3월 10일</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+                <button class="delete-btn">✖️</button>
+              </div>
+              <div class="schedule-item">
+                <span>국민은행 | 데이터 엔지니어 - 3월 15일</span>
+                <label class="toggle-switch">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+                <button class="delete-btn">✖️</button>
+              </div>
+            </div>
+            <div class="add-schedule">
+              <input type="text" placeholder="회사명" />
+              <input type="text" placeholder="직군" />
+              <input type="date" />
+              <button id="add-btn">일정 추가</button>
+            </div>
+          </div>
+        </main>
+      </main>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 금융권 IT 취업 준비 플랫폼 | 2025 모같핀코</p>
+    </footer>
+  </body>
 </html>
