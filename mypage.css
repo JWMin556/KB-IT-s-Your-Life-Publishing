@@ -2,55 +2,55 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
-}
-
-/* Header와 각 섹션 스타일 */
-header {
+  }
+  
+  /* Header와 각 섹션 스타일 */
+  header {
     background-color: #ff6f00;
     color: #fff;
     padding: 20px 0;
-}
-
-.header-container {
+  }
+  
+  .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-header h1 {
+  }
+  
+  header h1 {
     font-size: 2rem;
     margin-left: 20px;
-}
-
-header h1 a {
+  }
+  
+  header h1 a {
     color: #fff;
     text-decoration: none;
-}
-
-nav ul {
+  }
+  
+  nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 1.1rem;
-}
-
-nav ul li a:hover {
+  }
+  
+  nav ul li a:hover {
     color: #f39c12;
-}
-
-.container {
+  }
+  
+  .container {
     display: flex;
     width: 90%;
     max-width: 1200px;
@@ -58,65 +58,65 @@ nav ul li a:hover {
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-}
-
-.sidebar {
+  }
+  
+  .sidebar {
     width: 250px;
     background: #fff;
     padding: 20px;
     border-right: 1px solid #ddd;
     height: 100vh; /* 화면 높이에 맞게 사이드바 높이를 고정 */
     flex-shrink: 0; /* 사이드바가 축소되지 않도록 설정 */
-}
-
-.profile {
+  }
+  
+  .profile {
     text-align: center;
     margin-bottom: 30px;
-}
-
-.profile img {
-    width: 80px;
-    height: 80px;
+  }
+  
+  .profile img {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: linear-gradient(to bottom, #f9a825, #fff);
-}
-
-.menu {
+  }
+  
+  .menu {
     list-style: none;
     padding: 0;
     text-align: left;
     color: gray;
-}
-
-.setting {
-    color: #fd821d;
-}
-
-.menu li {
+  }
+  
+  .setting {
+    color: #fd9c1d;
+  }
+  
+  .menu li {
     padding: 10px 10px;
     border-bottom: 1px solid #edb047;
     cursor: pointer;
     text-align: left;
-}
-
-.menu li:last-child {
+  }
+  
+  .menu li:last-child {
     border-bottom: none;
-}
-
-.content {
+  }
+  
+  .content {
     flex-grow: 1;
     padding: 20px;
     overflow-x: hidden;
-}
-
-/* 탭 스타일 */
-.tabs {
+  }
+  
+  /* 탭 스타일 */
+  .tabs {
     display: flex;
     border-bottom: 2px solid #ddd;
     margin-bottom: 15px;
-}
-
-.tab-button {
+  }
+  
+  .tab-button {
     flex: 1;
     padding: 10px;
     text-align: center;
@@ -125,32 +125,32 @@ nav ul li a:hover {
     border: none;
     outline: none;
     font-size: 16px;
-}
-
-.tab-button.active {
-    background: #ff6600;
+  }
+  
+  .tab-button.active {
+    background: #ff7c36;
     color: white;
     font-weight: bold;
-}
-
-.tab-content {
+  }
+  
+  .tab-content {
     display: none;
-}
-
-.tab-content.active {
+  }
+  
+  .tab-content.active {
     display: block;
-}
-
-/* 카드 컨테이너: 3열 레이아웃 */
-.card-container {
+  }
+  
+  /* 카드 컨테이너: 3열 레이아웃 */
+  .card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3열 */
     gap: 20px;
-    padding: 20px;
-}
-
-/* 카드 스타일 */
-.card {
+    padding: 30px;
+  }
+  
+  /* 카드 스타일 */
+  .card {
     position: relative;
     width: 100%;
     padding-top: 100%; /* 정방형 비율 유지 */
@@ -159,87 +159,88 @@ nav ul li a:hover {
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
-
-/* 카드 이미지 정방형 비율 유지 */
-.card-image {
+  }
+  
+  /* 카드 이미지 정방형 비율 유지 */
+  .card-image {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 50%;
-}
-
-.card-image img {
+    bottom: 40%;
+  }
+  
+  .card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-/* 카드 제목 */
-.card-title {
+    object-fit: contain;
+    border-radius: 0px;
+  }
+  
+  /* 카드 제목 */
+  .card-title {
     font-weight: bold;
     margin-top: 10px;
-}
-
-/* 카드 설명 */
-.card-description {
+  }
+  
+  /* 카드 설명 */
+  .card-description {
     font-size: 14px;
     color: #555;
     line-height: 1.4;
     margin: 10px 10px 0 10px;
     overflow: hidden;
+  
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2; /* 최대 2줄까지 표시 */
     -webkit-box-orient: vertical;
-}
-
-/* 섹션 스타일 */
-.section {
+  }
+  
+  /* 섹션 스타일 */
+  .section {
     margin-bottom: 20px;
     padding: 15px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.section h2 {
+  }
+  
+  .section h2 {
     margin-bottom: 10px;
     font-size: 18px;
-}
-
-/* 일정 그리드 */
-.schedule-grid {
+  }
+  
+  /* 일정 그리드 */
+  .schedule-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-}
-
-.schedule-item {
+  }
+  
+  .schedule-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-}
-
-/* 토글 스위치 스타일 */
-.toggle-switch {
+  }
+  
+  /* 토글 스위치 스타일 */
+  .toggle-switch {
     position: relative;
     display: inline-block;
     width: 40px;
     height: 20px;
-}
-
-.toggle-switch input {
+  }
+  
+  .toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
-}
-
-.slider {
+  }
+  
+  .slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -249,9 +250,9 @@ nav ul li a:hover {
     background-color: #ccc;
     border-radius: 20px;
     transition: 0.4s;
-}
-
-.slider:before {
+  }
+  
+  .slider:before {
     position: absolute;
     content: '';
     height: 14px;
@@ -261,18 +262,18 @@ nav ul li a:hover {
     background-color: white;
     border-radius: 50%;
     transition: 0.4s;
-}
-
-input:checked + .slider {
+  }
+  
+  input:checked + .slider {
     background-color: #ff6600;
-}
-
-input:checked + .slider:before {
+  }
+  
+  input:checked + .slider:before {
     transform: translateX(20px);
-}
-
-/* 일정 추가 버튼 */
-.add-schedule {
+  }
+  
+  /* 일정 추가 버튼 */
+  .add-schedule {
     margin-top: 15px;
     display: flex;
     gap: 10px;
@@ -280,22 +281,22 @@ input:checked + .slider:before {
     align-items: center;
     padding: 10px;
     border-top: 1px solid #ddd;
-}
-
-.add-schedule input {
+  }
+  
+  .add-schedule input {
     flex: 1;
     padding: 8px;
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
-}
-
-.add-schedule input[type='date'] {
+  }
+  
+  .add-schedule input[type='date'] {
     max-width: 150px;
-}
-
-.add-schedule button {
+  }
+  
+  .add-schedule button {
     padding: 8px 15px;
     background-color: #ff6600;
     color: white;
@@ -303,14 +304,14 @@ input:checked + .slider:before {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s;
-}
-
-.add-schedule button:hover {
+  }
+  
+  .add-schedule button:hover {
     background-color: #e65c00;
-}
-
-/* 삭제 버튼 */
-.delete-btn {
+  }
+  
+  /* 삭제 버튼 */
+  .delete-btn {
     background: none;
     border: none;
     color: red;
@@ -318,43 +319,43 @@ input:checked + .slider:before {
     cursor: pointer;
     margin-left: 10px;
     transition: 0.2s;
-}
-
-.delete-btn:hover {
+  }
+  
+  .delete-btn:hover {
     color: darkred;
-}
-
-/* 게시글 목록 스타일 */
-.post-list {
+  }
+  
+  /* 게시글 목록 스타일 */
+  .post-list {
     list-style: none;
     padding: 0;
-}
-
-.post-item {
+  }
+  
+  .post-item {
     display: flex;
     gap: 20px;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-}
-
-.post-index {
+  }
+  
+  .post-index {
     width: 30px;
     font-weight: bold;
     text-align: center;
-}
-
-.post-title {
+  }
+  
+  .post-title {
     flex: 1;
     text-decoration: none;
     color: #333;
-}
-
-.post-date {
+  }
+  
+  .post-date {
     color: #666;
-}
-
-/* 푸터 스타일 수정 */
-footer {
+  }
+  
+  /* 푸터 스타일 수정 */
+  footer {
     text-align: center;
     padding: 20px;
     background-color: #333;
@@ -362,8 +363,9 @@ footer {
     width: 100%;
     position: relative; /* 일반적인 위치 */
     margin-top: auto; /* 컨텐츠 끝에 붙여줌 */
-}
-
-footer p {
+  }
+  
+  footer p {
     font-size: 0.9rem;
-}
+  }
+  
